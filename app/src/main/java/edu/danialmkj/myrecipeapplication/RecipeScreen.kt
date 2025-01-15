@@ -24,9 +24,11 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.rememberAsyncImagePainter
 
 @Composable
-fun RecipeScreen(modifier: Modifier = Modifier , navigateToDetailScreen: (Category) -> Unit) {
-    val recipeViewModel: MainViewModel = viewModel()
-    val viewState by recipeViewModel.categoriesState
+fun RecipeScreen(
+    modifier: Modifier = Modifier,
+    viewState: MainViewModel.RecipeState,
+    navigateToDetailScreen: (Category) -> Unit
+) {
     Box(modifier = Modifier.fillMaxSize()) {
         when {
             viewState.loading -> {
@@ -41,7 +43,7 @@ fun RecipeScreen(modifier: Modifier = Modifier , navigateToDetailScreen: (Catego
 
             else -> {
                 //Display Categories
-                CategoryScreen(viewState.list , navigateToDetailScreen)
+                CategoryScreen(viewState.list, navigateToDetailScreen)
             }
         }
     }

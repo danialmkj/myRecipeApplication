@@ -7,6 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import edu.danialmkj.myrecipeapplication.ui.theme.MyRecipeApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -14,9 +16,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val navController = rememberNavController()
             MyRecipeApplicationTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    RecipeScreen()
+//                    RecipeScreen()
+                    RecipeApp(navController = navController)
                 }
             }
         }
