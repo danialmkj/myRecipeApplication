@@ -56,6 +56,12 @@ dependencies {
     implementation(libs.coil.compose) //Load Images
 
 
+    val nav_version = "2.8.5"
+
+    // Jetpack Compose integration
+    implementation(libs.androidx.navigation.compose)
+
+
 
 
     implementation(libs.androidx.core.ktx)
